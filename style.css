@@ -1,0 +1,40 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+
+/* Body */
+body { background: #111; color: #fff; }
+
+/* Navbar */
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 50px; background: #000;
+}
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: #fff; text-decoration: none; transition: 0.3s; }
+.nav-links a:hover { color: #0ff; text-shadow: 0 0 10px #0ff; }
+
+/* Neon text */
+.neon-text { color: #0ff; text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
+
+/* Hero Section */
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+
+/* Gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 50px; }
+.gallery-grid img { width: 100%; border: 2px solid #0ff; border-radius: 10px; transition: 0.3s; }
+.gallery-grid img:hover { transform: scale(1.05); box-shadow: 0 0 20px #0ff; }
+
+/* Artists */
+.artist-grid { display: flex; justify-content: center; gap: 30px; padding: 50px; }
+.artist-card { text-align: center; border: 1px solid #0ff; padding: 20px; border-radius: 10px; }
+.artist-card img { width: 150px; border-radius: 50%; border: 2px solid #0ff; }
+
+/* Form */
+form { display: flex; flex-direction: column; width: 300px; margin: auto; gap: 15px; }
+input, textarea { padding: 10px; border: 1px solid #0ff; border-radius: 5px; background: #111; color: #fff; }
+.neon-button { padding: 10px; border: none; border-radius: 5px; background: #0ff; color: #000; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.neon-button:hover { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+
+/* Sections */
+section { padding: 50px 0; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #0ff; text-shadow: 0 0 10px #0ff; }
