@@ -2,17 +2,23 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 
 /* Body */
+body {
+  font-family: 'Orbitron', sans-serif;
+}
 body { background: #111; color: #fff; }
 
 /* Navbar */
 nav {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 20px 50px; background: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,255,255,0.2);
 }
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { color: #fff; text-decoration: none; transition: 0.3s; }
-.nav-links a:hover { color: #0ff; text-shadow: 0 0 10px #0ff; }
-
 /* Neon text */
 .neon-text { color: #0ff; text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
 
@@ -20,21 +26,194 @@ nav {
 .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 
 /* Gallery */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 50px; }
-.gallery-grid img { width: 100%; border: 2px solid #0ff; border-radius: 10px; transition: 0.3s; }
-.gallery-grid img:hover { transform: scale(1.05); box-shadow: 0 0 20px #0ff; }
 
+.gallery-grid img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #ff00ff;
+}
 /* Artists */
-.artist-grid { display: flex; justify-content: center; gap: 30px; padding: 50px; }
-.artist-card { text-align: center; border: 1px solid #0ff; padding: 20px; border-radius: 10px; }
-.artist-card img { width: 150px; border-radius: 50%; border: 2px solid #0ff; }
 
+/* Artist Images */
+.artist-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #0ff;
+  transition: 0.3s;
+}
+
+.artist-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0ff;
+}
+
+/* Gallery Images */
+.gallery-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #0ff, 0 0 50px #ff00ff;
+}
 /* Form */
 form { display: flex; flex-direction: column; width: 300px; margin: auto; gap: 15px; }
 input, textarea { padding: 10px; border: 1px solid #0ff; border-radius: 5px; background: #111; color: #fff; }
-.neon-button { padding: 10px; border: none; border-radius: 5px; background: #0ff; color: #000; font-weight: bold; cursor: pointer; transition: 0.3s; }
-.neon-button:hover { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+.neon-button {
+  padding: 12px;
+  border: 1px solid #0ff;
+  background: transparent;
+  color: #0ff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.neon-button:hover {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 10px #0ff, 0 0 40px #0ff;
+}
 
 /* Sections */
 section { padding: 50px 0; }
 .section-title { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #0ff; text-shadow: 0 0 10px #0ff; }
+/* Animated Background */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(270deg, #0ff, #ff00ff, #0ff);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+  opacity: 0.15;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero h1 {
+  animation: floatText 3s ease-in-out infinite;
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Abstract Geometric Grid Background */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  background-image: 
+    linear-gradient(rgba(0,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.1) 1px, transparent 1px);
+    
+  background-size: 40px 40px;
+  
+  animation: moveGrid 10s linear infinite;
+}
+
+/* Animation for movement */
+@keyframes moveGrid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(40px, 40px);
+  }
+}
+.grid-background::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
+}
+#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #0a0a0a;
+}
+/* Floating Glow Shapes */
+.floating-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* so it doesn't block clicks */
+  z-index: 1;
+}
+
+.floating-shapes span {
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #0ff, transparent);
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: floatMove 20s linear infinite;
+}
+
+/* Different positions & speeds */
+.floating-shapes span:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-duration: 18s;
+}
+
+.floating-shapes span:nth-child(2) {
+  top: 60%;
+  left: 70%;
+  animation-duration: 22s;
+}
+
+.floating-shapes span:nth-child(3) {
+  top: 30%;
+  left: 80%;
+  animation-duration: 25s;
+}
+
+.floating-shapes span:nth-child(4) {
+  top: 80%;
+  left: 10%;
+  animation-duration: 20s;
+}
+
+/* Animation */
+@keyframes floatMove {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-100px) scale(1.2);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
